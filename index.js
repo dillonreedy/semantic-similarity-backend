@@ -5,8 +5,8 @@ var fs = require('fs');
 
 require('dotenv').config();
 const corsOptions = {
-    origin: 'https://api-dot-pipeline-semantic-274917.uc.r.appspot.com'
-  }
+    origin: 'https://pipeline-semantic-274917.uc.r.appspot.com'
+}
   
 
 const port = 8080;
