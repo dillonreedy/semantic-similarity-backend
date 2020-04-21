@@ -8,7 +8,9 @@ require('dotenv').config();
 const port = 8080;
 
 const app = express();
-app.use(cors());
+app.use(cors({
+    origin: 'https://pipeline-semantic-274917.uc.r.appspot.com/'
+}));
 
 
 let semanticDescriptors = {};
