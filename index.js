@@ -2,18 +2,17 @@ var cors = require('cors');
 var express = require('express');
 var synonyms = require("synonyms");
 var fs = require('fs');
+var path = require('path')
 
 require('dotenv').config();
 const corsOptions = {
-    origin: 'https://pipeline-semantic-274917.uc.r.appspot.com',
+    origin: ['https://pipeline-semantic-274917.uc.r.appspot.com', 'http://localhost', 'http://localhost:3000']
 }
   
 
 const port = 8080;
 
 const app = express();
-//app.use(cors());
-
 
 let semanticDescriptors = {};
 
@@ -73,6 +72,9 @@ function shuffle(array) {
   
     return array;
   }
+
+
+  app.use('/', express.static(path.join(__dirname, 'build')));
 
 app.get('/getQuestion', cors(corsOptions), (req, res) => {
 
