@@ -12,6 +12,12 @@ app.use(cors({
     origin: 'https://pipeline-semantic-274917.uc.r.appspot.com'
 }));
 
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "https://pipeline-semantic-274917.uc.r.appspot.com"); // update to match the domain you will make the request from
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 
 let semanticDescriptors = {};
 
