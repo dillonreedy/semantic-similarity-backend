@@ -5,7 +5,7 @@ var fs = require('fs');
 
 require('dotenv').config();
 
-const port = 3001;
+const port = 8080;
 
 const app = express();
 app.use(cors());
