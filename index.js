@@ -4,6 +4,10 @@ var synonyms = require("synonyms");
 var fs = require('fs');
 
 require('dotenv').config();
+const corsOptions = {
+    origin: 'https://api-dot-pipeline-semantic-274917.uc.r.appspot.com'
+  }
+  
 
 const port = 8080;
 
@@ -70,8 +74,7 @@ function shuffle(array) {
     return array;
   }
 
-app.options('/getQuestion', cors());
-app.get('/getQuestion', (req, res) => {
+app.get('/getQuestion', cors(corsOptions), (req, res) => {
 
     let [word, syn] = getWordAndSynonym();
 
