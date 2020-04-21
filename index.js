@@ -8,15 +8,7 @@ require('dotenv').config();
 const port = 8080;
 
 const app = express();
-app.use(cors({
-    origin: 'https://pipeline-semantic-274917.uc.r.appspot.com'
-}));
-
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "https://pipeline-semantic-274917.uc.r.appspot.com"); // update to match the domain you will make the request from
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
+//app.use(cors());
 
 
 let semanticDescriptors = {};
@@ -78,6 +70,7 @@ function shuffle(array) {
     return array;
   }
 
+app.options('/getQuestion', cors());
 app.get('/getQuestion', (req, res) => {
 
     let [word, syn] = getWordAndSynonym();
